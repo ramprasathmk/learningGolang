@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/ramprasathmk/learningGolang/src"
+)
 
 func main() {
-	fmt.Println("Hi, from Golang")
+	src.Hi()
 }
