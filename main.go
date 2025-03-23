@@ -1,32 +1,20 @@
 package main
 
 import (
-	// "github.com/ramprasathmk/learningGolang/src"
-	// "github.com/ramprasathmk/learningGolang/src/maps"
-	// "github.com/ramprasathmk/learningGolang/src/structs"
 	"fmt"
+	"log"
 
-	"github.com/ramprasathmk/learningGolang/src/interfaces"
+	"github.com/ramprasathmk/learningGolang/src/arrays"
 )
 
 func main() {
-	// src.Hi()
-	// structs.RunStructure()
-	// maps.RunMaps()
-
-	var shape interfaces.Shape
-
-	shape = interfaces.Circle{Radius: 7.0}
-	fmt.Println("Area of Circle: ", shape.CalcArea())
-
-	shape = interfaces.Triangle{Base: 5, Height: 6}
-	fmt.Println("Area of Triangle: ", shape.CalcArea())
-
-	// Interface to Print the dynamic Type initialization
-	interfaces.PrintType(10)
-	interfaces.PrintType("10")
-	interfaces.PrintType(10.932872)
-	interfaces.PrintType(10/2==0)
-	interfaces.PrintType([]int{})
-	interfaces.PrintType(map[int]int{})
+	fmt.Println("Starting main() function")
+	// new array
+	array := []int{1,2,3, 5, 6, 2, 4, 2, 1,4 ,6, 4}
+	// fmt.Println(array, arrays.CheckUnique(array))
+	// array2 := []int{1, 2, 3, 5, 6}
+	// fmt.Println(array2, arrays.CheckUnique(array2))
+	log.Println("Array 1: ", array)
+	lcheck, larr, uarr := arrays.AddUnique(array)
+	fmt.Printf("check: %v, larr: %v, uarr: %v\n", lcheck, larr, uarr)
 }

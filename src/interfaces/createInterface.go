@@ -47,3 +47,21 @@ func (r Rectangle) CalcArea() float64 {
 func PrintType(i interface{}) {
 	fmt.Printf("Value: %v, Type: %T\n",i , i)
 }
+
+func main(){
+	var shape Shape
+
+	shape = Circle{Radius: 7.0}
+	fmt.Println("Area of Circle: ", shape.CalcArea())
+
+	shape = Triangle{Base: 5, Height: 6}
+	fmt.Println("Area of Triangle: ", shape.CalcArea())
+
+	// Interface to Print the dynamic Type initialization
+	PrintType(10)
+	PrintType("10")
+	PrintType(10.932872)
+	PrintType(10/2==0)
+	PrintType([]int{})
+	PrintType(map[int]int{})
+}

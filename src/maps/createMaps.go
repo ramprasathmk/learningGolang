@@ -1,6 +1,8 @@
 package maps
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func CreateMaps() {
 	fmt.Println("Creating Maps")
