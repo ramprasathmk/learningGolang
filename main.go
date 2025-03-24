@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	// "github.com/ramprasathmk/learningGolang/src/arrays"
-	api "github.com/ramprasathmk/learningGolang/src/API"
+	API "github.com/ramprasathmk/learningGolang/src/API"
 )
 
 func main() {
@@ -21,8 +21,11 @@ func main() {
 	// fmt.Printf("check: %v, larr: %v, uarr: %v\n", lcheck, larr, uarr)
 	log.Println("Server Started...")
 	// entrypoints
-	http.HandleFunc("/hi", api.Greet)
-	http.HandleFunc("/getuser",api. GetUserList)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "%s", "Hello, World from the Go Server")
+	})
+	http.HandleFunc("/hi", API.Greet)
+	http.HandleFunc("/getuser", API.GetUserList)
 	// port
 	http.ListenAndServe(":29100", nil)
 	log.Println("Server Ended...")

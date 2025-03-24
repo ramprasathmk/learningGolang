@@ -41,3 +41,14 @@ func GetUserList(w http.ResponseWriter, r *http.Request) {
 func Greet(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, Gopher!\n Time: %s", time.Now())
 }
+
+// func main() {
+// 	fmt.Println("Starting main() function")
+// 	log.Println("Server Started...")
+// 	// entrypoints
+// 	http.HandleFunc("/hi", Greet)
+// 	http.HandleFunc("/getuser", GetUserList)
+// 	// port
+// 	http.ListenAndServe(":29100", nil)
+// 	log.Println("Server Ended...")
+// }
