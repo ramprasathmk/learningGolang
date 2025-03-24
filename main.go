@@ -3,18 +3,27 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 
-	"github.com/ramprasathmk/learningGolang/src/arrays"
+	// "github.com/ramprasathmk/learningGolang/src/arrays"
+	api "github.com/ramprasathmk/learningGolang/src/API"
 )
 
 func main() {
 	fmt.Println("Starting main() function")
 	// new array
-	array := []int{1,2,3, 5, 6, 2, 4, 2, 1,4 ,6, 4}
+	// array := []int{1,2,3, 5, 6, 2, 4, 2, 1,4 ,6, 4}
 	// fmt.Println(array, arrays.CheckUnique(array))
 	// array2 := []int{1, 2, 3, 5, 6}
 	// fmt.Println(array2, arrays.CheckUnique(array2))
-	log.Println("Array 1: ", array)
-	lcheck, larr, uarr := arrays.AddUnique(array)
-	fmt.Printf("check: %v, larr: %v, uarr: %v\n", lcheck, larr, uarr)
+	// log.Println("Array 1: ", array)
+	// lcheck, larr, uarr := arrays.AddUnique(array)
+	// fmt.Printf("check: %v, larr: %v, uarr: %v\n", lcheck, larr, uarr)
+	log.Println("Server Started...")
+	// entrypoints
+	http.HandleFunc("/hi", api.Greet)
+	http.HandleFunc("/getuser",api. GetUserList)
+	// port
+	http.ListenAndServe(":29100", nil)
+	log.Println("Server Ended...")
 }
