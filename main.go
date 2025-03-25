@@ -25,7 +25,8 @@ func main() {
 		fmt.Fprintf(w, "%s", "Hello, World from the Go Server")
 	})
 	http.HandleFunc("/hi", API.Greet)
-	http.HandleFunc("/getuser", API.GetUserList)
+	http.HandleFunc("/getuserdata", API.GetUserData)
+	http.HandleFunc("/getuserlist", API.GetUserList)
 	// port
 	http.ListenAndServe(":29100", nil)
 	log.Println("Server Ended...")

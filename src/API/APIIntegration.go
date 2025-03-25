@@ -3,6 +3,7 @@ package API
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"time"
 )
@@ -16,8 +17,8 @@ type Response struct {
 
 // UserStruct struct represents the UserStruct structure
 type UserStruct struct {
-	Username string
-	Age      int
+	Username string `json: "username"`
+	Age      int `json: "age"`
 }
 
 // GetUserList() writes the user list
@@ -42,12 +43,52 @@ func Greet(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, Gopher!\n Time: %s", time.Now())
 }
 
+func GetUserData(w http.ResponseWriter, r *http.Request) {
+	var UserDetails UserStruct
+
+	body, err := io.ReadAll(r.Body)
+
+	if err != nil {
+		http.Error(w, "Error reading request body", http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Println("Raw JSON body: ", string(body))
+
+	err = json.Unmarshal(body, &UserDetails)
+
+	if err != nil {
+		http.Error(w, "Invalid JSON data", http.StatusInternalServerError)
+		return 
+	}
+
+	fmt.Println("user details: ", UserDetails)
+
+	status := "S"
+
+	response := Response{
+		Status: status,
+		UserArrList: []UserStruct{UserDetails},
+	}
+
+	resp, err := json.Marshal(response)
+
+	if err != nil {
+		http.Error(w, "Error marshalling response", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(resp)
+}
+
 // func main() {
 // 	fmt.Println("Starting main() function")
 // 	log.Println("Server Started...")
 // 	// entrypoints
 // 	http.HandleFunc("/hi", Greet)
-// 	http.HandleFunc("/getuser", GetUserList)
+// 	http.HandleFunc("/getuserlist", GetUserList)
+//  http.HandleFunc("/getuserdata", GetUserData)
 // 	// port
 // 	http.ListenAndServe(":29100", nil)
 // 	log.Println("Server Ended...")
