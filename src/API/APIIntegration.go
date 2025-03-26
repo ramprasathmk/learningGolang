@@ -17,8 +17,8 @@ type Response struct {
 
 // UserStruct struct represents the UserStruct structure
 type UserStruct struct {
-	Username string `json: "username"`
-	Age      int    `json: "age"`
+	Username string `json:"username"`
+	Age      int    `json:"age"`
 }
 
 // GetUserList() writes the user list
