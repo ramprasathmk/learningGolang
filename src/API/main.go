@@ -11,7 +11,7 @@ import (
 type Student struct {
 	Id      int    `json:"id"`
 	Name    string `json:"name"`
-	Mobile  string  `json:"mobile"`
+	Mobile  string `json:"mobile"`
 	Email   string `json:"email"`
 	Address string `json:"address"`
 	Dob     string `json:"dob"`
@@ -100,9 +100,9 @@ func PostStudent(w http.ResponseWriter, r *http.Request) {
 
 		if isUnique {
 			data = append(data, newStudent)
-			log.Printf("Student %v details added successfully", newStudent.Name)
+			log.Printf("Student %v details added successfully\n", newStudent.Name)
 		} else {
-			log.Printf("Student %v already exists", newStudent.Name)
+			log.Printf("Student %v already exists\n", newStudent.Name)
 			http.Error(w, "Student already exists", http.StatusConflict)
 			return
 		}
@@ -240,14 +240,15 @@ func main() {
 	log.Println("Go Server Started...")
 
 	// entrypoints
+	// GET method (Get all Students)
 	http.HandleFunc("/get", GetStudent)
 	// POST method (Add student)
-	http.HandleFunc("/post", PostStudent)   
+	http.HandleFunc("/post", PostStudent)
 	// PUT method (Update student)
-	http.HandleFunc("/put", PutStudent)     
+	http.HandleFunc("/put", PutStudent)
 	// DELETE method (Delete student)
 	http.HandleFunc("/delete", DeleteStudent)
-	
+
 	// listen to the port 5000
 	http.ListenAndServe(":5000", nil)
 }
