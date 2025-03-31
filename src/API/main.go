@@ -17,26 +17,24 @@ type Student struct {
 	Dob     string `json:"dob"`
 }
 
-// StudentList
+// type StudentList defines the student list structure 
 type StudentList []Student
 
-// API Response Structure
+// type APIResponse defines the api response structure
 type APIResponse struct {
 	Status   string      `json:"status"`
 	ErrMsg   string      `json:"errMsg"`
 	Students StudentList `json:"students"`
 }
 
-// Student list data
-// globally declared
+// globally declared student list data
 var data StudentList = StudentList{
 	{Id: 101, Name: "manoj", Mobile: "9988112201", Email: "manoj@acb.com", Address: "Chennai", Dob: "01/01/2001"},
 	{Id: 102, Name: "vimal", Mobile: "9988112202", Email: "vimal@acb.com", Address: "Kerala", Dob: "02/02/2000"},
 	{Id: 103, Name: "kiran", Mobile: "9988112203", Email: "kiran@acb.com", Address: "Bangalore", Dob: "10/02/2002"},
 }
 
-// API Response data
-// globally declared
+// globally declared api response data
 var lResp APIResponse = APIResponse{
 	Status:   "S",
 	ErrMsg:   "",
@@ -79,6 +77,7 @@ func PostStudent(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		// instance of the type student
 		var newStudent Student
 		err = json.Unmarshal(body, &newStudent)
 
@@ -91,6 +90,7 @@ func PostStudent(w http.ResponseWriter, r *http.Request) {
 
 		// Check if ID is unique
 		isUnique := true
+
 		for _, stu := range data {
 			if stu.Id == newStudent.Id {
 				isUnique = false
@@ -150,6 +150,7 @@ func PutStudent(w http.ResponseWriter, r *http.Request) {
 
 		// Find and update the student
 		updated := false
+
 		for i, stu := range data {
 			if stu.Id == updatedStudent.Id {
 				data[i] = updatedStudent
@@ -166,6 +167,7 @@ func PutStudent(w http.ResponseWriter, r *http.Request) {
 		// Update response data
 		lResp.Students = data
 		lData, err := json.Marshal(lResp)
+
 		if err != nil {
 			http.Error(w, "Error marshalling response", http.StatusInternalServerError)
 			return
@@ -195,6 +197,13 @@ func DeleteStudent(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		// logic 1: delete the student with student id
+		var studentToDelete struct {
+			Id string
+		}
+
+		// logic 2: delete the student with student instance
+		// instance of the type student
 		var studentToDelete Student
 		err = json.Unmarshal(body, &studentToDelete)
 
@@ -205,6 +214,7 @@ func DeleteStudent(w http.ResponseWriter, r *http.Request) {
 
 		// Find and delete student
 		index := -1
+		
 		for i, stu := range data {
 			if stu.Id == studentToDelete.Id {
 				index = i
@@ -223,6 +233,7 @@ func DeleteStudent(w http.ResponseWriter, r *http.Request) {
 		// Update response data
 		lResp.Students = data
 		lData, err := json.Marshal(lResp)
+		
 		if err != nil {
 			http.Error(w, "Error marshalling response", http.StatusInternalServerError)
 			return
