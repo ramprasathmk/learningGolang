@@ -1,0 +1,20 @@
+2025/04/02 22:41:57 Get employee data (+)
+2025/04/02 22:41:57 Get employee data (-)
+2025/04/02 22:42:28 Insert Employee data (+)
+2025/04/02 22:42:28 invalid request method
+2025/04/02 22:42:28 Insert Employee Data (-)
+2025/04/02 22:44:55 Insert Employee data (+)
+2025/04/02 22:44:55 AI003: employee already exist
+2025/04/02 22:45:10 Insert Employee data (+)
+2025/04/02 22:45:10 employee data inserted successfully
+2025/04/02 22:45:10 Insert Employee Data (-)
+2025/04/02 22:45:18 Get employee data (+)
+2025/04/02 22:45:18 Get employee data (-)
+2025/04/02 22:46:04 Update Employee Data (+)
+2025/04/02 22:46:04 employee data updated successfully
+2025/04/02 22:46:04 Update Employee Data (-)
+2025/04/02 22:46:53 Get employee data (+)
+2025/04/02 22:46:53 Get employee data (-)
+2025/04/02 22:47:36 Delete Employee Data (+)
+2025/04/02 22:47:36 employee data deleted successfully
+2025/04/02 22:47:36 Delete Employee Data (-)

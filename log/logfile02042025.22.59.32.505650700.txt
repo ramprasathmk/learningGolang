@@ -1,0 +1,11 @@
+2025/04/02 22:59:54 Get employee data (+)
+2025/04/02 22:59:54 Get employee data (-)
+2025/04/02 23:01:19 Insert Employee data (+)
+2025/04/02 23:01:19 employee data inserted successfully
+2025/04/02 23:01:19 Insert Employee Data (-)
+2025/04/02 23:01:53 Update Employee Data (+)
+2025/04/02 23:01:53 employee data updated successfully
+2025/04/02 23:01:53 Update Employee Data (-)
+2025/04/02 23:02:09 Delete Employee Data (+)
+2025/04/02 23:02:09 employee data deleted successfully
+2025/04/02 23:02:09 Delete Employee Data (-)
