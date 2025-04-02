@@ -8,14 +8,14 @@ const (
 	// status success
 	lStatusS = "S"
 
-	lDefaultErr = "something went wrong"
+	lErrMessage = "something went wrong"
 
 	lEmpNotFoundErr = "employee not found"
 
 	lEmpExistErr = "employee already exist"
 )
 
-var empArr = EmployeesList{
+var lEmpArr = EmployeesList{
 	// employee 1
 	Employee{
 		Id:      101,
