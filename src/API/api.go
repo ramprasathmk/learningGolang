@@ -59,6 +59,7 @@ func ShowEmployee(w http.ResponseWriter, r *http.Request) {
 			lResp.ErrMsg = lErr.Error()
 			fmt.Fprintf(w, "AG002: %s", lErr.Error())
 		} else {
+			log.Println("data retrieved successfully")
 			fmt.Fprintf(w, "%s", string(lData))
 		}
 	} else {
