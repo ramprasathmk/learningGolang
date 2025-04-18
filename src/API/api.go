@@ -12,9 +12,8 @@ import (
 
 // Student Structure
 type Employee struct {
-	Id   int    `json:"id"`
-	Name string `json:"name"`
-	// Age     int    `json:"age"`
+	Id      int    `json:"id"`
+	Name    string `json:"name"`
 	Mobile  string `json:"mobile"`
 	Email   string `json:"email"`
 	Address string `json:"address"`
