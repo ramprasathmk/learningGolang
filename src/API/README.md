@@ -59,8 +59,8 @@ Deletes an employee by ID.
 - `lStatusE` = "E" (Error status)
 - `lStatusS` = "S" (Success status)
 - `lErrMessage` = "something went wrong"
-- `lEmpNotFoundErr` = "employee not found"
-- `lEmpExistErr` = "employee already exist"
+- `lErrEmpNotFound` = "employee not found"
+- `lErrEmpExist` = "employee already exist"
 
 ## Global Variables (common.go)
 - `lEmpArr` - Predefined list of employees
