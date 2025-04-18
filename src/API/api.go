@@ -273,7 +273,7 @@ func RunAPIServer() {
 	// log start
 	log.Println("Server starting...")
 
-	// ! create "log/" dir before running the file.
+	// imp create "log/" dir before running the file.
 	lLogFile, lErr := os.OpenFile("./log/logfile"+time.Now().Format("02012006.15.04.05.000000000")+".txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
 	if lErr != nil {
