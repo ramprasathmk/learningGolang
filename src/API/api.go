@@ -107,8 +107,8 @@ func InsertEmployee(w http.ResponseWriter, r *http.Request) {
 
 		if !lIsUnique {
 			lResp.Status = lStatusE
-			lResp.ErrMsg = lEmpExistErr
-			log.Println("AI003: " + lEmpExistErr)
+			lResp.ErrMsg = lErrEmpExist
+			log.Println("AI003: " + lErrEmpExist)
 			return
 		}
 
@@ -179,8 +179,8 @@ func UpdateEmployee(w http.ResponseWriter, r *http.Request) {
 
 			if !lIsUpdated {
 				lResp.Status = lStatusE
-				lResp.ErrMsg = lEmpNotFoundErr
-				log.Println("AU003: " + lEmpNotFoundErr)
+				lResp.ErrMsg = lErrEmpNotFound
+				log.Println("AU003: " + lErrEmpNotFound)
 				return
 			}
 
@@ -244,8 +244,8 @@ func DeleteEmployee(w http.ResponseWriter, r *http.Request) {
 
 		if lIndex == -1 {
 			lResp.Status = lStatusE
-			lResp.ErrMsg = lEmpNotFoundErr
-			log.Println("AD003: " + lEmpNotFoundErr)
+			lResp.ErrMsg = lErrEmpNotFound
+			log.Println("AD003: " + lErrEmpNotFound)
 			return
 		}
 

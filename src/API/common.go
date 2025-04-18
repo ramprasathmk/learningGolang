@@ -10,9 +10,9 @@ const (
 
 	lErrMessage = "something went wrong"
 
-	lEmpNotFoundErr = "employee not found"
+	lErrEmpNotFound = "employee not found"
 
-	lEmpExistErr = "employee already exist"
+	lErrEmpExist = "employee already exist"
 )
 
 var lEmpArr = EmployeesList{
