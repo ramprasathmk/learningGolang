@@ -23,7 +23,7 @@ func (c Circle) CalcArea() float64 {
 
 // create Shape Triangle
 type Triangle struct {
-	Base float64
+	Base   float64
 	Height float64
 }
 
@@ -32,10 +32,9 @@ func (t Triangle) CalcArea() float64 {
 	return (t.Base * t.Height) / 2
 }
 
-
 // create Shape Rectange
 type Rectangle struct {
-	Length float64
+	Length  float64
 	Breadth float64
 }
 
@@ -45,10 +44,10 @@ func (r Rectangle) CalcArea() float64 {
 }
 
 func PrintType(i interface{}) {
-	fmt.Printf("Value: %v, Type: %T\n",i , i)
+	fmt.Printf("Value: %v, Type: %T\n", i, i)
 }
 
-func main(){
+func main() {
 	var shape Shape
 
 	shape = Circle{Radius: 7.0}
@@ -61,7 +60,7 @@ func main(){
 	PrintType(10)
 	PrintType("10")
 	PrintType(10.932872)
-	PrintType(10/2==0)
+	PrintType(10/2 == 0)
 	PrintType([]int{})
 	PrintType(map[int]int{})
 }

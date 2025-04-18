@@ -1,123 +1,72 @@
-# Student Management API
+# API Documentation
 
-This is a simple Go-based REST API for managing student records. The API supports the following operations:
-- Get all students (`GET`)
-- Adding a new student (`POST`)
-- Updating an existing student (`PUT`)
-- Deleting a student (`DELETE`)
+## Package: API
 
-## Prerequisites
-- Go 1.16+
-- A REST client (Postman, curl, etc.)
+### Structures:
+#### Employee
+Represents an employee entity with the following fields:
+- `Id` (int) - Employee ID
+- `Name` (string) - Employee Name
+- `Mobile` (string) - Employee Mobile Number
+- `Email` (string) - Employee Email Address
+- `Address` (string) - Employee Address
+- `Dob` (string) - Employee Date of Birth
 
-## How to Run
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-repo/student-api.git
-   cd student-api
-   ```
-2. Run the server:
-   ```sh
-   go run main.go
-   ```
-   The server will start on `http://localhost:5000`.
+#### EmployeesList
+Type alias for a slice of `Employee`.
+
+#### Response
+API response structure:
+- `Status` (string) - API response status (`"S"` for success, `"E"` for error)
+- `ErrMsg` (string) - Error message, if any
+- `Employees` (`EmployeesList`) - List of employees
 
 ## API Endpoints
 
-### 1️⃣ Get All Students
-**Endpoint:** `GET /get`
+### `GET /get`
+Retrieves all employee data.
+- Response:
+  - `Response` JSON containing status, employees list or error message.
 
-**Response:**
-```json
-{
-  "status": "S",
-  "errMsg": "",
-  "students": [
-    {
-      "id": 101,
-      "name": "manoj",
-      "mobile": 9988112201,
-      "email": "manoj@acb.com",
-      "address": "Chennai",
-      "dob": "01/01/2001"
-    },
-    ...
-  ]
-}
-```
+### `POST /post`
+Inserts a new employee.
+- Request Body:
+  - `Employee` JSON object
+- Validation:
+  - Employee ID must be unique.
+- Response:
+  - `Response` JSON indicating success or failure.
 
-### 2️⃣ Add a Student
-**Endpoint:** `POST /post`
+### `PUT /update`
+Updates an existing employee's data.
+- Request Body:
+  - `Employee` JSON object (matching ID required)
+- Validation:
+  - Employee ID must exist.
+- Response:
+  - `Response` JSON indicating success or failure.
 
-**Request Body:**
-```json
-{
-  "id": 105,
-  "name": "new user",
-  "mobile": 9988776609,
-  "email": "user@bca.com",
-  "address": "mysuru",
-  "dob": "09/10/2002"
-}
-```
+### `DELETE /delete`
+Deletes an employee by ID.
+- Request Body:
+  - JSON object with `Id` field
+- Validation:
+  - Employee ID must exist.
+- Response:
+  - `Response` JSON indicating success or failure.
 
-**Response:**
-```json
-{
-  "status": "S",
-  "errMsg": "",
-  "students": [ ... updated list of students ... ]
-}
-```
+## Constants (common.go)
+- `lStatusE` = "E" (Error status)
+- `lStatusS` = "S" (Success status)
+- `lErrMessage` = "something went wrong"
+- `lEmpNotFoundErr` = "employee not found"
+- `lEmpExistErr` = "employee already exist"
 
-### 3️⃣ Update a Student
-**Endpoint:** `PUT /put`
+## Global Variables (common.go)
+- `lEmpArr` - Predefined list of employees
 
-**Request Body:**
-```json
-{
-  "id": 102,
-  "name": "Vimal Updated",
-  "mobile": 9988112202,
-  "email": "vimal_updated@acb.com",
-  "address": "Kerala",
-  "dob": "02/02/2000"
-}
-```
-
-**Response:**
-```json
-{
-  "status": "S",
-  "errMsg": "",
-  "students": [ ... updated list of students ... ]
-}
-```
-
-### 4️⃣ Delete a Student
-**Endpoint:** `DELETE /delete`
-
-**Request Body:**
-```json
-{
-  "id": 102
-}
-```
-
-**Response:**
-```json
-{
-  "status": "S",
-  "errMsg": "",
-  "students": [ ... updated list of students ... ]
-}
-```
-
-## Error Responses
-| HTTP Code | Message                     |
-|-----------|-----------------------------|
-| 400       | Bad Request                 |
-| 404       | Student not found           |
-| 409       | Student already exists      |
-| 500       | Internal Server Error       |
+## Server Configuration
+- Listens on port `29100`
+- Logs written to `./log/logfile<timestamp>.txt`
+- Supports CORS with unrestricted access
 

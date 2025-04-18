@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
 
 	// "github.com/ramprasathmk/learningGolang/src/arrays"
 	API "github.com/ramprasathmk/learningGolang/src/API"
@@ -19,15 +17,6 @@ func main() {
 	// log.Println("Array 1: ", array)
 	// lcheck, larr, uarr := arrays.AddUnique(array)
 	// fmt.Printf("check: %v, larr: %v, uarr: %v\n", lcheck, larr, uarr)
-	log.Println("Server Started...")
-	// entrypoints
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "%s", "Hello, World from the Go Server")
-	})
-	http.HandleFunc("/hi", API.Greet)
-	http.HandleFunc("/getuserdata", API.GetUserData)
-	http.HandleFunc("/getuserlist", API.GetUserList)
-	// port
-	http.ListenAndServe(":29100", nil)
-	log.Println("Server Ended...")
+
+	API.RunAPIServer()
 }
