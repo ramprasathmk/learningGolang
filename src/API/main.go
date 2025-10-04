@@ -29,9 +29,9 @@ type APIResponse struct {
 
 // globally declared student list data
 var data StudentList = StudentList{
-	{Id: 101, Name: "manoj", Mobile: "9988112201", Email: "manoj@acb.com", Address: "Chennai", Dob: "01/01/2001"},
-	{Id: 102, Name: "vimal", Mobile: "9988112202", Email: "vimal@acb.com", Address: "Kerala", Dob: "02/02/2000"},
-	{Id: 103, Name: "kiran", Mobile: "9988112203", Email: "kiran@acb.com", Address: "Bangalore", Dob: "10/02/2002"},
+	{Id: 101, Name: "manoj", Mobile: "99xxxxxx01", Email: "manoj@acb.com", Address: "Chennai", Dob: "01/01/2001"},
+	{Id: 102, Name: "vimal", Mobile: "99xxxxxx02", Email: "vimal@acb.com", Address: "Kerala", Dob: "02/02/2000"},
+	{Id: 103, Name: "kiran", Mobile: "99xxxxxx03", Email: "kiran@acb.com", Address: "Bangalore", Dob: "10/02/2002"},
 }
 
 // globally declared api response data
