@@ -198,9 +198,9 @@ func DeleteStudent(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// logic 1: delete the student with student id
-		var studentToDelete struct {
-			Id string
-		}
+		// var studentToDelete struct {
+		// 	Id string
+		// }
 
 		// logic 2: delete the student with student instance
 		// instance of the type student
